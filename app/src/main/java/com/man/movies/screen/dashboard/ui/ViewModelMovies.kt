@@ -13,7 +13,6 @@ class ViewModelMovies(
     typeMovie: TypeMovie
 ) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
-    var filterTextAll = MutableLiveData<String>()
 
     val moviePagedList: LiveData<PagedList<MovieItemsModel>> by lazy {
         repository.fetchingMovieList(compositeDisposable, typeMovie)
@@ -34,7 +33,8 @@ class ViewModelMovies(
 
     fun getFilteredList(s: String): LiveData<List<MovieItemsModel>> {
         return Transformations.map(moviePagedList) {
-            it.filter { movies -> movies.title.contains(s) }
+            if (s.isNotEmpty()) it.filter { movies -> movies.title.contains(s, true) }
+            else it
         }
     }
 

@@ -1,6 +1,5 @@
 package com.man.movies.data.source
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.man.domain.model.movie.MovieItemsModel

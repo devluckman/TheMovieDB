@@ -1,5 +1,6 @@
 package com.man.movies.extentions
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -37,11 +38,12 @@ fun View.visible() {
     this.visibility = View.VISIBLE
 }
 
-fun View.hideKeyboard() {
+fun hideKeyboard(activity: Activity) {
     try {
-        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(windowToken, 0)
+        val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(activity.currentFocus?.windowToken, 0)
     } catch (e: Exception) {
         e.printStackTrace()
     }
 }
+

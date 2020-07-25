@@ -43,6 +43,7 @@ ext {
     glideVersion ='4.10.0'
     materialVersion = '1.1.0'
     shimmerVersion = '0.5.0'
+    eventBusVersion = '3.2.0'
 
     // Permission Libraries
     karumiVersion = '6.2.0'
@@ -107,6 +108,7 @@ ext {
             glide:              [group: 'com.github.bumptech.glide', name: 'glide', version: glideVersion],
             material:           [group: 'com.google.android.material', name: 'material', version: materialVersion ],
             shimmer:            [group: 'com.facebook.shimmer', name: 'shimmer', version: shimmerVersion],
+            eventbus:           [group: 'org.greenrobot', name: 'eventbus', version: eventBusVersion],
             karumi:             [group: 'com.karumi', name: 'dexter', version: karumiVersion]
 
     ]
@@ -128,6 +130,7 @@ ext {
             [configuration: "implementation", dependency: helperLibs.glide],
             [configuration: "implementation", dependency: helperLibs.material],
             [configuration: "implementation", dependency: helperLibs.shimmer],
+            [configuration: "implementation", dependency: helperLibs.eventbus],
             [configuration: "implementation", dependency: jetpackLibs.lifecycleExtention],
             [configuration: "implementation", dependency: jetpackLibs.lifecycleViewModel],
             [configuration: "implementation", dependency: jetpackLibs.navigationFragment],

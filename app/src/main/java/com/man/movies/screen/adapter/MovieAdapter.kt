@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.man.domain.model.movie.MovieItemsModel
 import com.man.movies.R
 import com.man.movies.data.NetworkState
-import java.lang.IllegalArgumentException
 
 class MovieAdapter : PagedListAdapter<MovieItemsModel, ViewHolder>(UserDiffCallback){
 

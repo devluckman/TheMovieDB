@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.man.movies.di.component.DaggerFragmentComponent
 import com.man.movies.di.component.FragmentComponent
 import com.man.movies.di.module.FragmentModule
+import org.greenrobot.eventbus.EventBus
 
 abstract class BaseFragment : Fragment(), Base {
 
@@ -36,6 +37,9 @@ abstract class BaseFragment : Fragment(), Base {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this)
+        }
         initComponent()
     }
 
