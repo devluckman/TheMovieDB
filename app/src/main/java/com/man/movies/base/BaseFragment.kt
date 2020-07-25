@@ -20,13 +20,15 @@ abstract class BaseFragment : Fragment(), Base {
     private lateinit var fragmentHandler: Handler
 
     var layoutView: View? = null
-
+    //viewLifecycleOwner null
+    protected var flag = false
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return try {
+            flag = true
             layoutView = inflater.inflate(getLayoutResource(), container, false)
             layoutView
         } catch (e: OutOfMemoryError) {
@@ -54,4 +56,10 @@ abstract class BaseFragment : Fragment(), Base {
                 .build()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        flag = false
+    }
+
 }

@@ -32,9 +32,6 @@ class PopularFragment : BaseFragment() {
 
     override fun getLayoutResource(): Int = R.layout.fragment_movie
 
-    //viewLifecycleOwner null
-    var flag = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         movieAdapter = MovieAdapter()
@@ -42,7 +39,6 @@ class PopularFragment : BaseFragment() {
     }
 
     override fun initComponent() {
-        flag = true
         fragmentComponent.inject(this)
         viewModel = viewModelMovies()
         showLoadingContainer(true)
@@ -122,8 +118,4 @@ class PopularFragment : BaseFragment() {
         rv_movie_search.visible()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        flag = false
-    }
 }

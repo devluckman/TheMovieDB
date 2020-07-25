@@ -32,9 +32,6 @@ class UpComingFragment : BaseFragment() {
 
     override fun getLayoutResource(): Int = R.layout.fragment_movie
 
-    //viewLifecycleOwner null
-    var flag = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         movieAdapter = MovieAdapter()
@@ -42,7 +39,6 @@ class UpComingFragment : BaseFragment() {
     }
 
     override fun initComponent() {
-        flag = true
         fragmentComponent.inject(this)
         viewModel = viewModelMovies()
         showLoadingContainer(true)
@@ -66,9 +62,9 @@ class UpComingFragment : BaseFragment() {
         })
 
         viewModel.networkState.observe(viewLifecycleOwner, Observer {
-            if (viewModel.movieListIsEmpty() && it == NetworkState.LOADING) showLoadingContainer(
-                true
-            ) else showLoadingContainer(false)
+            if (viewModel.movieListIsEmpty() && it == NetworkState.LOADING) showLoadingContainer(true)
+            else showLoadingContainer(false)
+
             if (!viewModel.movieListIsEmpty()) {
                 movieAdapter.setNetworkState(it)
             }
@@ -120,10 +116,5 @@ class UpComingFragment : BaseFragment() {
     private fun showSearchResult(){
         rv_movie.gone()
         rv_movie_search.visible()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        flag = false
     }
 }
