@@ -12,7 +12,7 @@ import java.lang.IllegalArgumentException
 class MovieAdapter : PagedListAdapter<MovieItemsModel, ViewHolder>(UserDiffCallback){
 
     private var networkState: NetworkState? = null
-    val MOVIE_TYPE_VIEW = R.layout.item_movies
+    val MOVIE_TYPE_VIEW = R.layout.movie_list_item
     val NETWORK_TYPE_VIEW = R.layout.network_state_item
     companion object {
         val UserDiffCallback = object : DiffUtil.ItemCallback<MovieItemsModel>() {

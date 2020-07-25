@@ -1,8 +1,6 @@
-package com.man.movies.screen.dashboard.ui.nowplaying
+package com.man.movies.screen.dashboard.ui
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import androidx.paging.PagedList
 import com.man.domain.model.movie.MovieItemsModel
 import com.man.movies.data.NetworkState
@@ -10,14 +8,15 @@ import com.man.movies.data.TypeMovie
 import com.man.movies.data.source.MoviePagedListRepository
 import io.reactivex.disposables.CompositeDisposable
 
-class NowPlayingViewModel (
-    repository: MoviePagedListRepository
+class ViewModelMovies(
+    repository: MoviePagedListRepository,
+    typeMovie: TypeMovie
 ) : ViewModel() {
-
     private val compositeDisposable = CompositeDisposable()
+    var filterTextAll = MutableLiveData<String>()
 
     val moviePagedList: LiveData<PagedList<MovieItemsModel>> by lazy {
-        repository.fetchingMovieList(compositeDisposable, TypeMovie.NOWPLAYING)
+        repository.fetchingMovieList(compositeDisposable, typeMovie)
     }
 
     val networkState: LiveData<NetworkState> by lazy {
@@ -33,9 +32,19 @@ class NowPlayingViewModel (
         compositeDisposable.dispose()
     }
 
-    class Factory(private val repository: MoviePagedListRepository) : ViewModelProvider.Factory {
+    fun getFilteredList(s: String): LiveData<List<MovieItemsModel>> {
+        return Transformations.map(moviePagedList) {
+            it.filter { movies -> movies.title.contains(s) }
+        }
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    class Factory(private val repository: MoviePagedListRepository, private val typeMovie: TypeMovie) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return NowPlayingViewModel(repository) as T
+            return ViewModelMovies(
+                repository,
+                typeMovie
+            ) as T
         }
     }
 }

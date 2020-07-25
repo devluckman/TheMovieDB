@@ -8,10 +8,9 @@ data class MovieItemsModel(
 	val title: String,
 	val genreIds: List<Int>,
 	val posterPath: String,
-	val backdropPath: String,
 	val releaseDate: String,
-	val popularity: Double,
-	val voteAverage: Int,
+	val popularity: Float,
+	val voteAverage: Float,
 	val id: Int,
 	val adult: Boolean,
 	val voteCount: Int

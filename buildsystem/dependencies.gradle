@@ -123,7 +123,6 @@ ext {
             [configuration: "implementation", dependency: dependencyInjectionLibs.javax],
             [configuration: "kapt", dependency: dependencyInjectionLibs.daggerCompiler],
             [configuration: "kapt", dependency: dependencyInjectionLibs.daggerProcessor],
-            [configuration: "implementation", dependency: loggingLibs.timber],
             [configuration: "implementation", dependency: reactiveXLibs.rxJava],
             [configuration: "implementation", dependency: reactiveXLibs.rxAndroid],
             [configuration: "implementation", dependency: helperLibs.glide],

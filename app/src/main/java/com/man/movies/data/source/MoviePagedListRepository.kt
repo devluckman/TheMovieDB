@@ -13,17 +13,17 @@ import io.reactivex.disposables.CompositeDisposable
 class MoviePagedListRepository (private val moviesUseCase: MoviesUseCase) {
 
     private lateinit var movieDataSourceFactory: MovieDataSourceFactory
-    private var PAGE_SIZE = 20
+    private var PAGE_SIZE = 10
 
     fun fetchingMovieList(
         compositeDisposable: CompositeDisposable,
         typeMovie: TypeMovie
     ) : LiveData<PagedList<MovieItemsModel>> {
-
         movieDataSourceFactory = MovieDataSourceFactory(moviesUseCase, compositeDisposable, typeMovie)
 
         val config = PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
+            .setEnablePlaceholders(true)
+            .setInitialLoadSizeHint(PAGE_SIZE)
             .setPageSize(PAGE_SIZE)
             .build()
 

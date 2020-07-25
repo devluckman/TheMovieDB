@@ -8,4 +8,6 @@
     <string name="up_coming">Up Coming</string>
     <string name="no_data">NO DATA</string>
     <string name="no_more_items">No More Items</string>
+    <string name="placeholder_10">10</string>
+    <string name="search">Search</string>
 </resources>

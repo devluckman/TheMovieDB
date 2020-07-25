@@ -1,5 +1,6 @@
 package com.man.movies.data.source
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.man.domain.model.movie.MovieItemsModel
@@ -48,7 +49,7 @@ class MovieDataSource(
         params: LoadParams<Int>,
         callback: LoadCallback<Int, MovieItemsModel>
     ) {
-
+        Log.d("ASUP", "loadAfter => ${params.key}")
         val disposable = when (typeMovie) {
             TypeMovie.POPULAR -> moviesUseCase.getMoviePopular(params.key)
             TypeMovie.NOWPLAYING -> moviesUseCase.getMovieNowPlaying(params.key)
@@ -58,12 +59,15 @@ class MovieDataSource(
         compositeDisposable.add(
             disposable.subscribeOn(Schedulers.io()).subscribe({
                 if (it.totalPages >= params.key) {
+                    Log.d("ASUP", "loadAfter => result")
                     callback.onResult(it.results, params.key + 1)
                     networkState.postValue(NetworkState.LOADED)
                 } else {
+                    Log.d("ASUP", "loadAfter => end of list")
                     networkState.postValue(NetworkState.ENDOFLIST)
                 }
             }, {
+                Log.d("ASUP", "loadAfter error => ${it.message}")
                 networkState.postValue(NetworkState.ERROR)
             })
         )

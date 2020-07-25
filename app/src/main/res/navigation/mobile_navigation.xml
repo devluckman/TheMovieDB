@@ -9,17 +9,17 @@
         android:id="@+id/navigation_popular"
         android:name="com.man.movies.screen.dashboard.ui.popular.PopularFragment"
         android:label="@string/popular"
-        tools:layout="@layout/fragment_popular" />
+        tools:layout="@layout/fragment_movie" />
 
     <fragment
         android:id="@+id/navigation_nowplaying"
         android:name="com.man.movies.screen.dashboard.ui.nowplaying.NowPlayingFragment"
         android:label="@string/now_playing"
-        tools:layout="@layout/fragment_nowplaying" />
+        tools:layout="@layout/fragment_movie" />
 
     <fragment
         android:id="@+id/navigation_upcoming"
         android:name="com.man.movies.screen.dashboard.ui.upcoming.UpComingFragment"
         android:label="@string/up_coming"
-        tools:layout="@layout/fragment_up_coming" />
+        tools:layout="@layout/fragment_movie" />
 </navigation>
