@@ -28,7 +28,6 @@ abstract class BaseFragment : Fragment(), Base {
         savedInstanceState: Bundle?
     ): View? {
         return try {
-            flag = true
             layoutView = inflater.inflate(getLayoutResource(), container, false)
             layoutView
         } catch (e: OutOfMemoryError) {
@@ -39,6 +38,7 @@ abstract class BaseFragment : Fragment(), Base {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        flag = true
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
         }

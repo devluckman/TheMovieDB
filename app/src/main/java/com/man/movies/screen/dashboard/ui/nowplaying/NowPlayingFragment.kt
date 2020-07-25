@@ -1,7 +1,6 @@
 package com.man.movies.screen.dashboard.ui.nowplaying
 
 import android.os.Bundle
-import android.os.Handler
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +17,7 @@ import com.man.movies.screen.adapter.MovieAdapter
 import com.man.movies.screen.adapter.SearchAdapter
 import com.man.movies.screen.dashboard.ui.ViewModelMovies
 import kotlinx.android.synthetic.main.fragment_movie.*
+import kotlinx.android.synthetic.main.fragment_movie.view.*
 import org.greenrobot.eventbus.Subscribe
 import javax.inject.Inject
 
@@ -43,9 +43,9 @@ class NowPlayingFragment : BaseFragment() {
     override fun initComponent() {
         fragmentComponent.inject(this)
         viewModel = viewModelMovies()
-        showLoadingContainer(true)
         setupView()
         setupViewSearch()
+        showLoadingContainer(true)
     }
 
     private fun viewModelMovies(): ViewModelMovies {
@@ -80,16 +80,9 @@ class NowPlayingFragment : BaseFragment() {
     }
 
     private fun showLoadingContainer(active: Boolean) {
-        if (active) {
-            rv_movie.gone()
-            shimmer_view_container.visible()
-            shimmer_view_container.startShimmer()
-        } else {
-            Handler().postDelayed({
-                shimmer_view_container.stopShimmer()
-                shimmer_view_container.gone()
-                rv_movie.visible()
-            }, 1000)
+        if (context == null) return
+        layoutView?.let {
+            it.vaMovie.displayedChild = if (active) 0 else 1
         }
     }
 
