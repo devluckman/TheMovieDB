@@ -2,12 +2,10 @@ package com.man.movies.screen.dashboard.ui.nowplaying
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.man.domain.model.movie.MovieItemsModel
 import com.man.movies.R
 import com.man.movies.base.BaseFragment
 import com.man.movies.data.NetworkState
@@ -93,7 +91,7 @@ class NowPlayingFragment : BaseFragment() {
                 shimmer_view_container.stopShimmer()
                 shimmer_view_container.gone()
                 rv_movie.visible()
-            }, 2000)
+            }, 1000)
         }
     }
 

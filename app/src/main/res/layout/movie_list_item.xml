@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/peopleCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -9,10 +8,9 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/itemCard"
+        android:id="@+id/movie_card"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:transitionName="imageTransition"
         app:cardCornerRadius="8dp">
 
         <ImageView

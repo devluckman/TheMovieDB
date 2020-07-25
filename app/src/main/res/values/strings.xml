@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">catalogue-movie</string>
+    <string name="app_name">Catalogue Movie</string>
     <string name="movies">Movies</string>
     <string name="title_activity_dashboard">Dashboard</string>
 
@@ -10,4 +10,7 @@
     <string name="no_more_items">No More Items</string>
     <string name="placeholder_10">10</string>
     <string name="search">Search</string>
+    <string name="release_date" formatted="false">Release Date : %s</string>
+    <string name="rating" formatted="false">%s/10</string>
+    <string name="hint_search">Search Movie By Title</string>
 </resources>

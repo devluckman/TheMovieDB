@@ -2,7 +2,6 @@ package com.man.movies.screen.dashboard.ui.popular
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +13,6 @@ import com.man.movies.data.TypeMovie
 import com.man.movies.data.source.MoviePagedListRepository
 import com.man.movies.event.SearchEvent
 import com.man.movies.extentions.gone
-import com.man.movies.extentions.observeData
 import com.man.movies.extentions.visible
 import com.man.movies.screen.adapter.MovieAdapter
 import com.man.movies.screen.adapter.SearchAdapter
@@ -93,7 +91,7 @@ class PopularFragment : BaseFragment() {
                 shimmer_view_container.stopShimmer()
                 shimmer_view_container.gone()
                 rv_movie.visible()
-            }, 2000)
+            }, 1000)
         }
     }
 

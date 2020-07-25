@@ -7,6 +7,7 @@ import com.man.domain.model.movie.MovieItemsModel
 import com.man.movies.R
 import com.man.movies.extentions.fromUrl
 import com.man.movies.extentions.inflate
+import com.man.movies.screen.detail.DetailActivity
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 
 class MovieViewHolder (view: View) : RecyclerView.ViewHolder(view) {
@@ -17,6 +18,10 @@ class MovieViewHolder (view: View) : RecyclerView.ViewHolder(view) {
                 img_poster_movie.fromUrl(item.posterPath)
                 txt_title_movie.text = item.title
                 txt_rating.text = "${item.voteAverage}"
+            }
+
+            movie_card.setOnClickListener {
+                context.startActivity(DetailActivity.newInstance(context, item!!))
             }
         }
     }

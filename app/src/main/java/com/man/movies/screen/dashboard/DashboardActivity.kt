@@ -54,7 +54,7 @@ class DashboardActivity : BaseActivity() {
         val searchView = searchItem?.actionView as SearchView
         searchView.setIconifiedByDefault(true)
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
-
+        searchView.queryHint = getString(R.string.hint_search)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null && query.isNotEmpty()) {

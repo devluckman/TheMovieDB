@@ -1,6 +1,9 @@
 package com.man.movies.screen.dashboard.ui
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.paging.PagedList
 import com.man.domain.model.movie.MovieItemsModel
 import com.man.movies.data.NetworkState

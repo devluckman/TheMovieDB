@@ -51,6 +51,10 @@ ext {
     //Database
     roomVersion = "2.2.5"
 
+    //Response Size
+    sdpVersion = '1.0.6'
+    sspVersion = '1.0.6'
+
     def androidLibs = [
             androidCore:        [group: 'androidx.core', name: 'core-ktx', version: androidxVersion],
             appCompat:          [group: 'androidx.appcompat', name: 'appcompat', version: androidxVersion],
@@ -109,6 +113,8 @@ ext {
             material:           [group: 'com.google.android.material', name: 'material', version: materialVersion ],
             shimmer:            [group: 'com.facebook.shimmer', name: 'shimmer', version: shimmerVersion],
             eventbus:           [group: 'org.greenrobot', name: 'eventbus', version: eventBusVersion],
+            sdp:                [group: 'com.intuit.sdp', name: 'sdp-android', version: sdpVersion],
+            ssp:                [group: 'com.intuit.ssp', name: 'ssp-android', version: sspVersion],
             karumi:             [group: 'com.karumi', name: 'dexter', version: karumiVersion]
 
     ]
@@ -131,6 +137,8 @@ ext {
             [configuration: "implementation", dependency: helperLibs.material],
             [configuration: "implementation", dependency: helperLibs.shimmer],
             [configuration: "implementation", dependency: helperLibs.eventbus],
+            [configuration: "implementation", dependency: helperLibs.sdp],
+            [configuration: "implementation", dependency: helperLibs.ssp],
             [configuration: "implementation", dependency: jetpackLibs.lifecycleExtention],
             [configuration: "implementation", dependency: jetpackLibs.lifecycleViewModel],
             [configuration: "implementation", dependency: jetpackLibs.navigationFragment],

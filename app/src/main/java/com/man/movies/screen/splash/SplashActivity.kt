@@ -10,7 +10,7 @@ class SplashActivity : BaseActivity() {
         R.layout.activity_splash
 
     override fun initComponent() {
-
+        activityComponent.inject(this)
         Handler().postDelayed({
             startActivity(DashboardActivity.newInstance(this))
             finish()

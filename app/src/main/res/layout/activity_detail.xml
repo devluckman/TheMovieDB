@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.detail.DetailActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_poster_detail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:background="@android:color/black"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher_background"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:padding="@dimen/dimens_8dp"
+                android:id="@+id/txt_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="6dp"
+                tools:text="Rating 10"
+                android:background="@drawable/bg"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:padding="@dimen/dimens_8dp"
+                android:id="@+id/txt_release"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                tools:text="Release Date : "
+                android:background="@drawable/bg"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10ssp" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Avengers"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"/>
+
+        <TextView
+            android:id="@+id/txt_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Avengers"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

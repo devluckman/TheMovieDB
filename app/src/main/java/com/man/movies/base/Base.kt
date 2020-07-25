@@ -2,7 +2,7 @@ package com.man.movies.base
 
 import androidx.annotation.LayoutRes
 
-interface Base : BaseView {
+interface Base {
 
     @LayoutRes
     fun getLayoutResource(): Int
